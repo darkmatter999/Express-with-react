@@ -1,7 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const usersRouter = express.Router();
 
-/* GET users listing. */
+const users = [{
+  id: 1,
+  username: "samsepi0l"
+}, {
+  id: 2,
+  username: "D0loresH4ze"
+}, {
+  id: 3,
+  username: "Tyrell Wellick"
+}
+]
+
+/* GET users listing. 
 router.get('/', function(req, res, next) {
 	// Comment out this line:
   //res.send('respond with a resource');
@@ -15,9 +27,14 @@ router.get('/', function(req, res, next) {
     username: "D0loresH4ze"
   }, {
     id: 3,
-    username: "Elliot"
+    username: "Mr. R0b"
   }
   ]);
 });
+*/
 
-module.exports = router;
+usersRouter.get('/', (req, res, next) => {
+  res.send(users)
+})
+
+module.exports = usersRouter;
