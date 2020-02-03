@@ -35,6 +35,10 @@ router.get('/', function(req, res, next) {
 
 usersRouter.get('/', (req, res, next) => {
   res.send(users)
-})
+});
+
+usersRouter.post('/', (req, res, next) => {
+  users.push(req.body.input)
+});
 
 module.exports = usersRouter;

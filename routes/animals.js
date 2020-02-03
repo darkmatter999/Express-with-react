@@ -5,12 +5,13 @@ const animals = [{animal: 'cat'}, {animal: 'dog'}, {animal: 'elephant'}];
 const animalArray = ['cat', 'dog', 'lion']
 
 animalsRouter.get('/', (req, res, next) => {
-    res.send(animalArray);
+    res.send(animals);
   });
 
 
 animalsRouter.post('/', (req, res, next) => {
-    animalArray.push(req.body.input)
+    //animalArray.push(req.body.input)
+    animals.push(req.body.input)
 });
 
   
