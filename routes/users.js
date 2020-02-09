@@ -3,13 +3,13 @@ const usersRouter = express.Router();
 
 const users = [{
   id: 1,
-  username: "samsepi0l"
+  username: "pete"
 }, {
   id: 2,
-  username: "D0loresH4ze"
+  username: "mike"
 }, {
   id: 3,
-  username: "Tyrell Wellick"
+  username: "rachel"
 }
 ]
 
@@ -50,7 +50,7 @@ usersRouter.get('/:id/usernames/:username', (req, res, next) => {
 
 usersRouter.post('/', (req, res, next) => {
   users.push(req.body.input)
-  //console.log(req.body.input.username)
+  console.log(req.body.input)
 });
 
 usersRouter.delete('/', (req, res, next) => {
@@ -58,9 +58,14 @@ usersRouter.delete('/', (req, res, next) => {
   for (x=0; x < users.length; x++) {
     if (req.body.input.username === users[x].username) {
       users.splice(x, 1)
+      console.log(users[x])
+    } else {
+      console.log('not found')
     }
   }
 });
+
+
 
 module.exports = usersRouter;
 
