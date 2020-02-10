@@ -50,7 +50,19 @@ usersRouter.get('/:id/usernames/:username', (req, res, next) => {
 
 usersRouter.post('/', (req, res, next) => {
   users.push(req.body.input)
-  console.log(req.body.input)
+  //console.log(req.body.input)
+});
+
+usersRouter.put('/', (req, res, next) => {
+  let x;
+  for (x=0; x < users.length; x++) {
+    if (req.body.input.username.split(':')[0] === users[x].username) {
+      users[x].username = req.body.input.username.split(':')[1]
+      //console.log(users[x])
+    } else {
+      console.log('not found')
+    }
+  }
 });
 
 usersRouter.delete('/', (req, res, next) => {
@@ -58,7 +70,7 @@ usersRouter.delete('/', (req, res, next) => {
   for (x=0; x < users.length; x++) {
     if (req.body.input.username === users[x].username) {
       users.splice(x, 1)
-      console.log(users[x])
+      //console.log(users[x])
     } else {
       console.log('not found')
     }
